@@ -1,65 +1,73 @@
+"use client";
+import Hero from "@/components/home/hero";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
+    <main className="">
+      <Hero />
+      <section className="flex default-layout-spacing flex-col-reverse lg:flex-row py-12 lg:py-20 items-center justify-center gap-8 lg:gap-16 px-6 lg:px-20 bg-blue-500/95">
+        <div className="show-content w-full lg:w-auto flex justify-center">
+          <video
+            src="/linktree-assets/customise_your_linktree.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full max-w-sm lg:max-w-lg xl:max-w-2xl rounded-2xl"
+          />
+        </div>
+
+        <div className="title flex flex-col gap-4 lg:gap-8 max-w-xl">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight text-[#d2e823] font-black">
+            Create and customize your Linktree in minutes
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-zinc-200 text-sm sm:text-base lg:text-lg leading-relaxed">
+            Connect all your content across social media, websites, stores and
+            more in one link in bio. Customize every detail or let Linktree
+            automatically enhance it.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => {
+              router.push("/generate");
+            }}
+            className="bg-[#d2e823] w-full sm:w-fit px-8 py-3 lg:py-4 rounded-full font-medium text-sm lg:text-lg"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            Get started for free
+          </button>
         </div>
-      </main>
-    </div>
+      </section>
+      <section className="flex flex-col-reverse lg:flex-row px-6 lg:px-18 gap-12 lg:gap-24 justify-center items-center default-layout-spacing bg-amber-50 py-16 lg:py-0">
+        <div className="show-content relative w-full sm:max-w-xl lg:w-[700px] lg:max-w-none aspect-[4/3] lg:h-[700px] lg:aspect-auto">
+          <Image
+            src="/linktree-assets/engaged_site.png"
+            fill
+            alt="engaged site"
+            className="object-cover sm:object-contain"
+          />
+        </div>
+
+        <div className="title flex flex-col gap-6 lg:gap-8 xl:gap-10 max-w-xl">
+          <h1 className="text-3xl text-center sm:text-start sm:text-4xl xl:text-6xl font-extrabold text-gray-900/95 leading-tight">
+            Analyze your audience and keep them engaged
+          </h1>
+          <p className="text-base lg:text-lg font-medium leading-relaxed text-gray-700">
+            Track your engagement over time, monitor revenue and learn what's
+            converting your audience. Make informed updates on the fly to keep
+            them coming back.
+          </p>
+          <button
+            onClick={() => {
+              router.push("/generate");
+            }}
+            className="bg-pink-300/75 w-full sm:w-fit px-8 py-3 lg:py-4 rounded-full font-medium text-sm lg:text-lg"
+          >
+            Get started for free
+          </button>
+        </div>
+      </section>
+    </main>
   );
 }
