@@ -1,4 +1,4 @@
-import Generate from "./components/generate";
+import Generate from "./components/generatePage";
 
 export const metadata = {
   title: "BitTree | Make your page",
