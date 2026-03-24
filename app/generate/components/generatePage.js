@@ -34,8 +34,11 @@ const Generate = () => {
   };
 
   const makeLink = async () => {
-    if (!handle || !link[0].url || !link[0].linkText) {
-      showNotification("Please fill required information", "error");
+    if (!handle.trim() || !link[0].url.trim() || !link[0].linkText.trim()) {
+      showNotification(
+        "Please fill required information or in good way",
+        "error",
+      );
       return;
     }
     const myHeaders = new Headers();
