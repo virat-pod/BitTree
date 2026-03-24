@@ -1,7 +1,7 @@
 "use client";
 import { NotificationContext } from "@/lib/contexts/serviceContext";
 import Image from "next/image";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 
 const Generate = () => {
@@ -9,10 +9,18 @@ const Generate = () => {
   const router = useRouter();
   const { showNotification } = useContext(NotificationContext);
   const [loading, setloading] = useState(false);
-  const [handle, sethandle] = useState(searchParams.get("handle"));
+  const [handle, sethandle] = useState("");
   const [link, setlink] = useState([{ url: "", linkText: "" }]);
   const [profile, setprofile] = useState("");
   const [desc, setdesc] = useState("");
+
+  useEffect(() => {
+    const initialHandling = searchParams.get("handle");
+    if (initialHandling) {
+      sethandle(initialHandling);
+    }
+  }, [searchParams]);
+  
 
   const handleLink = (index, label, value) => {
     setlink((prev) =>
@@ -23,7 +31,7 @@ const Generate = () => {
   };
 
   const addLink = () => {
-    setlink(link.concat([{ link: "", linkText: "" }]));
+    setlink(link.concat([{ url: "", linkText: "" }]));
   };
 
   const makeLink = async () => {
@@ -48,10 +56,9 @@ const Generate = () => {
       redirect: "follow",
     };
 
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_HOST}/api/links`,
-      requestOptions,
-    ).then((response) => response.json());
+    const res = await fetch(`/api/links`, requestOptions).then((response) =>
+      response.json(),
+    );
 
     if (res.success) {
       showNotification(res.message);
