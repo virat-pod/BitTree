@@ -20,7 +20,6 @@ const Generate = () => {
       sethandle(initialHandling);
     }
   }, [searchParams]);
-  
 
   const handleLink = (index, label, value) => {
     setlink((prev) =>
@@ -175,15 +174,19 @@ const Generate = () => {
           <input
             value={desc || ""}
             onChange={(e) => {
-              if (e.target.value.length <= 100) {
-                setdesc(e.target.value);
+              const value = e.target.value;
+              const cleanValue = value.trim().replace(/\s+/g, " ");
+              if (cleanValue.length <= 100) {
+                setdesc(value);
               }
             }}
             className="input-styling flex-1"
             type="text"
             placeholder="Type about yourself"
           />
-          <span className="text-sm text-zinc-800">{desc.length}/100</span>
+          <span className="text-sm text-zinc-800">
+            {desc.trim().replace(/\s+/g, " ").length}/100
+          </span>
         </div>
 
         <div className="form-spacing">
