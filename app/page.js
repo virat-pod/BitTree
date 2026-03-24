@@ -50,7 +50,7 @@ export default function Home() {
         </div>
 
         <div className="title flex flex-col gap-6 lg:gap-8 xl:gap-10 max-w-xl">
-          <h1 className="text-3xl text-center sm:text-start sm:text-4xl xl:text-6xl font-extrabold text-gray-900/95 leading-tight">
+          <h1 className="text-3xl sm:text-4xl xl:text-6xl font-extrabold text-gray-900/95 leading-tight">
             Analyze your audience and keep them engaged
           </h1>
           <p className="text-base lg:text-lg font-medium leading-relaxed text-gray-700">
