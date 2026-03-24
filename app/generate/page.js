@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Generate from "./components/generatePage";
 
 export const metadata = {
@@ -7,9 +8,10 @@ export const metadata = {
 };
 
 const page = () => {
-  return <div>
+  return <Suspense fallback={<div>Loading...</div>}> <div>
     <Generate/>
-  </div>;
+  </div>
+  </Suspense>
 };
 
 export default page;
