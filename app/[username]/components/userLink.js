@@ -7,7 +7,7 @@ const userProfile = ({ userInfo }) => {
   const { setShowOverlay } = useContext(NotificationContext);
 
   return (
-    <div className="wrapper font-lato flex sm:shrink-0 flex-col gap-8 items-center sm:max-w-[38rem] rounded-t-3xl shadow-lg border border-zinc-100 p-6 px-4 sm:p-8 bg-white ">
+    <div className="wrapper font-lato flex flex-col gap-8 items-center w-full max-w-[38rem] mx-auto rounded-t-3xl shadow-lg border border-zinc-100 p-6 sm:p-8 bg-white ">
       <div className="info-link w-full flex justify-between items-center">
         <Image
           src={"/linktreeShort.png"}
@@ -44,14 +44,17 @@ const userProfile = ({ userInfo }) => {
         <div className="title flex items-center flex-col w-4/5 gap-1.5">
           <h2 className="font-bold text-xl sm:text-2xl">@{userInfo.handle}</h2>
           {userInfo.description && (
-            <p className="text-center leading-tight text-zinc-700 text-sm sm:text-base break-words w-full">
+            <p
+              style={{ wordBreak: "break-word", overflowWrap: "anywhere" }}
+              className="text-center leading-tight h-14 text-zinc-700 text-sm sm:text-base break-words overflow-hidden"
+            >
               {userInfo.description}
             </p>
           )}
         </div>
       </div>
       <div
-        className="links-section flex flex-col py-0.5 gap-2.5 w-full h-2/5 sm:h-48 overflow-y-auto overflow-x-hidden pr-1
+        className="links-section flex flex-col py-0.5 gap-2.5 w-full h-1/3 sm:h-43.5 overflow-y-auto overflow-x-hidden pr-1
   [&::-webkit-scrollbar]:w-1
   [&::-webkit-scrollbar-track]:rounded-full
   [&::-webkit-scrollbar-track]:bg-zinc-100
@@ -67,7 +70,7 @@ const userProfile = ({ userInfo }) => {
               className="flex items-center justify-between bg-pink-500 hover:bg-pink-500/80 transition-colors w-full px-4 sm:px-5 py-3 sm:py-3.5 rounded-xl font-medium text-white"
             >
               <span className="w-5" />
-              <span className="text-base">{item.linkText}</span>
+              <span className="text-base truncate">{item.linkText}</span>
               <button
                 onClick={(e) => {
                   e.stopPropagation();

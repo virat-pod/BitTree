@@ -50,7 +50,7 @@ const Navbar = () => {
             Login
           </button>
           <button className="bg-gray-900/95 md:bg-gray-900 hover:bg-gray-900/95 text-white p-4 py-3 sm:p-6 sm:py-4 rounded-full cursor-pointer">
-            Sign up free
+            Create now
           </button>
           <button
             className="lg:hidden flex flex-col gap-1.5 p-1.5 cursor-pointer"

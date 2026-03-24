@@ -117,7 +117,11 @@ const Generate = () => {
             <input
               value={handle || ""}
               onChange={(e) => {
-                sethandle(e.target.value);
+                if (e.target.value.length <= 20) {
+                  sethandle(e.target.value);
+                } else {
+                  showNotification("Why do u write long name", "warning");
+                }
               }}
               className="flex-1 py-2.5 pr-2 outline-none text-sm text-zinc-800"
               type="text"
