@@ -7,7 +7,7 @@ const userProfile = ({ userInfo }) => {
   const { setShowOverlay } = useContext(NotificationContext);
 
   return (
-    <div className="wrapper font-lato flex flex-col gap-8 items-center w-full max-w-[38rem] mx-auto rounded-t-3xl shadow-lg border border-zinc-100 p-6 sm:p-8 bg-white ">
+    <div className="wrapper font-lato flex flex-col gap-8 items-center w-full max-w-[38rem] mx-auto sm:rounded-t-3xl shadow-lg border border-zinc-100 p-6 sm:p-8 bg-white ">
       <div className="info-link w-full flex justify-between items-center">
         <Image
           src={"/linktreeShort.png"}
@@ -54,7 +54,7 @@ const userProfile = ({ userInfo }) => {
         </div>
       </div>
       <div
-        className="links-section flex flex-col py-0.5 gap-2.5 w-full h-1/3 sm:h-43.5 overflow-y-auto overflow-x-hidden pr-1
+        className="links-section flex flex-col py-0.5 gap-2.5 w-full h-1/4 sm:h-43.5 overflow-y-auto overflow-x-hidden pr-1
   [&::-webkit-scrollbar]:w-1
   [&::-webkit-scrollbar-track]:rounded-full
   [&::-webkit-scrollbar-track]:bg-zinc-100
