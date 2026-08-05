@@ -168,12 +168,6 @@ Then open a Pull Request 🚀
 
 ---
 
-## 📄 License
-
-Licensed under the **MIT License** — feel free to use and modify.
-
----
-
 ##  Show Some Love
 
 If you like this project:
